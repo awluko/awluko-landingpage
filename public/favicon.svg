@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Concept 1: Rounded "A" in a circle -->
+  <circle cx="256" cy="256" r="240" fill="#0a0a0a" stroke="#e5e5e5" stroke-width="8"/>
+  <path d="M256 120 L156 380 L196 380 L216 320 L296 320 L316 380 L356 380 L256 120 Z M236 280 L256 220 L276 280 Z" fill="#e5e5e5"/>
+</svg>

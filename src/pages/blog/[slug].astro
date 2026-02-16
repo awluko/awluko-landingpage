@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Base title={`${post.data.title} | Andrew Lukosevic`} description={post.data.description}>
+  <article>
+    <header class="mb-8">
+      <time class="text-sm text-neutral-500">
+        {post.data.date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </time>
+      <h1 class="text-3xl font-bold mt-2 text-neutral-100">{post.data.title}</h1>
+      {post.data.tags && (
+        <div class="flex gap-2 mt-4">
+          {post.data.tags.map((tag) => (
+            <span class="text-xs px-2 py-1 bg-neutral-800 text-neutral-400 rounded">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <div class="prose prose-invert max-w-none prose-headings:text-neutral-100 prose-p:text-neutral-400 prose-a:text-blue-400 prose-strong:text-neutral-100 prose-code:text-neutral-100 prose-li:text-neutral-400">
+      <Content />
+    </div>
+
+    <footer class="mt-12 pt-8 border-t border-neutral-800">
+      <a href="/blog" class="text-neutral-400 hover:text-neutral-100">&larr; Back to blog</a>
+    </footer>
+  </article>
+</Base>
