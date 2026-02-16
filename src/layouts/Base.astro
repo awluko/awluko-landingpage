@@ -19,15 +19,16 @@ const { title, description = "Andrew Lukosevic - Cybersecurity Leader & Threat H
   <body class="flex flex-col min-h-screen bg-neutral-950 text-neutral-100">
     <header class="py-6 px-4">
       <nav class="max-w-2xl mx-auto flex justify-between items-center">
-        <a href="/" class="text-lg font-medium text-neutral-100 hover:text-blue-400">awluko</a>
+        <a href="/" class="text-xl font-bold text-neutral-100 hover:text-blue-400">Andrew Lukosevic</a>
         <div class="flex gap-6 text-sm text-neutral-400">
+          <a href="/blog" class="hover:text-neutral-100">Posts</a>
           <a href="/about" class="hover:text-neutral-100">About</a>
-          <a href="/blog" class="hover:text-neutral-100">Blog</a>
         </div>
       </nav>
+      <hr class="max-w-2xl mx-auto mt-6 border-neutral-800" />
     </header>
 
-    <main class="flex-1 px-4 py-12">
+    <main class="flex-1 px-4 py-4">
       <div class="max-w-2xl mx-auto">
         <slot />
       </div>
